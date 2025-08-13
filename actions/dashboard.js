@@ -11,7 +11,7 @@ const serializeTransaction = (obj) => {
         serialized.balance = obj.balance.toNumber();
     }
 
-     if (obj.amount) {
+    if (obj.amount) {
         serialized.amount = obj.amount.toNumber();
     }
 
@@ -60,7 +60,7 @@ export async function createAccount(data) {
         const serializedAccount = serializeTransaction(account);
 
         revalidatePath("/dashboard");
-        return { sucess: true, data: serializedAccount };
+        return { success: true, data: serializedAccount };
 
     }
     catch (error) {
@@ -69,28 +69,33 @@ export async function createAccount(data) {
 }
 
 export const getUserAccounts = async () => {
-    const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    try {
+        const { userId } = await auth();
+        if (!userId) throw new Error("Unauthorized");
 
-    const user = await db.user.findUnique({
-        where: { clerkUserId: userId },
-    });
+        const user = await db.user.findUnique({
+            where: { clerkUserId: userId },
+        });
 
-    if (!user) throw new Error("User not found");
+        if (!user) throw new Error("User not found");
 
-    const accounts = await db.account.findMany({
-        where: { userId: user.id },
-        orderBy: { createdAt: "desc" },
-        include: {
-            _count: {
-                select: {
-                    transactions: true,
+        const accounts = await db.account.findMany({
+            where: { userId: user.id },
+            orderBy: { createdAt: "desc" },
+            include: {
+                _count: {
+                    select: {
+                        transactions: true,
+                    },
                 },
-            },
-        }
-    });
+            }
+        });
 
-    const serializedAccount = accounts.map(serializeTransaction);
+        const serializedAccount = accounts.map(serializeTransaction);
 
-    return  serializedAccount ;
+        return serializedAccount;
+
+    } catch (error) {
+        throw new Error(error.message);
+    }
 }
