@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../lib/generated/prisma"
 }
 
 datasource db {
@@ -37,7 +36,7 @@ model Transaction {
   description       String?
   date              DateTime
   category          String
-  receiptuUrl       String?
+  receiptUrl       String?
   isRecurring       Boolean            @default(false)
   recurringInterval RecurringInterval?
   nextRecurringDate DateTime?
