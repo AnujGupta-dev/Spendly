@@ -31,7 +31,7 @@ CREATE TABLE "public"."transactions" (
     "description" TEXT,
     "date" TIMESTAMP(3) NOT NULL,
     "category" TEXT NOT NULL,
-    "receiptuUrl" TEXT,
+    "receiptUrl" TEXT,
     "isRecurring" BOOLEAN NOT NULL DEFAULT false,
     "recurringInterval" "public"."RecurringInterval",
     "nextRecurringDate" TIMESTAMP(3),
@@ -85,6 +85,9 @@ CREATE INDEX "transactions_accountId_idx" ON "public"."transactions"("accountId"
 
 -- CreateIndex
 CREATE INDEX "accounts_userId_idx" ON "public"."accounts"("userId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "budgets_userId_key" ON "public"."budgets"("userId");
 
 -- CreateIndex
 CREATE INDEX "budgets_userId_idx" ON "public"."budgets"("userId");
