@@ -1,8 +1,8 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 

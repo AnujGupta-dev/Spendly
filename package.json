@@ -11,6 +11,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@arcjet/inspect": "^1.0.0-beta.11",
     "@arcjet/next": "^1.0.0-beta.10",
     "@bufbuild/protobuf": "^1.4.1",
     "@clerk/nextjs": "^6.28.1",
