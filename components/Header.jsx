@@ -4,24 +4,27 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { LayoutDashboard , PenBox} from "lucide-react";
 import { checkUser } from "@/lib/checkUser";
+import ThemeToggle from "./theme-toggle";
 
 const Header = async () => {
     
     await checkUser();
 
     return (
-        <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
+        <header className="fixed top-0 w-full bg-background/70 backdrop-blur-md z-50 border-b">
             <nav className="container mx-auto flex items-center justify-between p-4">
                 <Link href="/">
-                    <Image src={"/logo.png"} alt="wealth-logo" height={60} width={200} className="h-12 w-auto object-contain" />
+                    <Image src={"/logo.png"} alt="mintflow-logo" height={500} width={500} className="h-10 w-auto object-contain block dark:hidden" />
+                    <Image src={"/logo2.png"} alt="mintflow-logo" height={500} width={500} className="h-10 w-auto object-contain hidden dark:block " />
+
                 </Link>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 md:space-x-4">
                     <SignedIn>
                         <Link
                             href="/dashboard"
                         >
-                            <Button variant="outline" className="text-gray-600 hover:text-blue-600 flex items-center ">
+                            <Button variant="outline" className="flex items-center ">
                                 <LayoutDashboard size={18} />
                                 <span className="hidden md:inline">Dashboard</span>
                             </Button>
@@ -29,16 +32,17 @@ const Header = async () => {
                         <a href="/transaction/create">
                             <Button className="flex items-center gap-2">
                                 <PenBox size={18} />
-                                <span className="hidden md:inline">Add Transaction</span>
+                                <span className="hidden md:inline">New Transaction</span>
                             </Button>
                         </a>
                     </SignedIn>
 
                         <SignedOut>
                             <SignInButton forceRedirectUrl="/dashboard" >
-                                <Button variant="outline">Login</Button>
+                                <Button variant="outline">Sign in</Button>
                             </SignInButton >
                         </SignedOut>
+                        <ThemeToggle />
                         <SignedIn>
                             <UserButton
                                 appearance={{

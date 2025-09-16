@@ -183,7 +183,10 @@ export function DashboardOverview({ accounts, transactions }) {
                       border: "1px solid hsl(var(--border))",
                       borderRadius: "var(--radius)",
                     }}
+                    itemStyle={{ color: "hsl(var(--foreground))" }}   
+                    labelStyle={{ color: "hsl(var(--foreground))" }} 
                   />
+
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>

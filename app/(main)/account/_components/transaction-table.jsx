@@ -192,6 +192,28 @@ export function TransactionTable({ transactions }) {
     setCurrentPage(1);
   };
 
+  const handleExportCsv = () => {
+    const rows = filteredAndSortedTransactions.map((t) => ({
+      Date: format(new Date(t.date), "yyyy-MM-dd"),
+      Description: t.description || "",
+      Category: t.category,
+      Type: t.type,
+      Amount: t.amount,
+      Recurring: t.isRecurring ? "Yes" : "No",
+    }));
+    const header = Object.keys(rows[0] || { Date: "", Description: "", Category: "", Type: "", Amount: "", Recurring: "" });
+    const csv = [header.join(","), ...rows.map((r) => header.map((h) => JSON.stringify(r[h] ?? "")).join(","))].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `transactions_${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
     setSelectedIds([]); // Clear selections on page change
@@ -217,6 +239,9 @@ export function TransactionTable({ transactions }) {
           />
         </div>
         <div className="flex gap-2">
+          <Button variant="outline" onClick={handleExportCsv} title="Export filtered results">
+            Export CSV
+          </Button>
           <Select
             value={typeFilter}
             onValueChange={(value) => {

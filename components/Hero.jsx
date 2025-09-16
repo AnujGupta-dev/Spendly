@@ -29,22 +29,22 @@ const HeroSection = () => {
 
     return (
         <section className="pb-20 px-4 ">
-            <div className="mx-aut0 text-center container">
+            <div className="mx-auto text-center container">
                 <h1 className="text-5xl md:text-8xl lg:text-[105px] pb-6 gradient-title">
-                    Manage your finances <br />with Intelligence
+                    Money clarity, <br />without the clutter
                 </h1>
-                <p className="text-gray-600 text-xl mb-8 max-w-2xl mx-auto">
-                    An AI-powered finacial mangement platform that helps you track, analyze, and omptimize your spending with real-time insights .
+                <p className="text-muted-foreground text-xl mb-8 max-w-2xl mx-auto">
+                    Mintflow helps you track spending, plan budgets, and spot trends with effortless insights.
                 </p>
                 <div className="flex justify-center space-x-4">
                     <Link href="/dashboard">
                         <Button className="px-8">
-                            Get started
+                            Start now
                         </Button>
                     </Link>
                     <Link href="/demolinkadd">
                         <Button variant={'outline'} size={'lg'} className="px-8">
-                            Watch Demo
+                            See a preview
                         </Button>
                     </Link>
                 </div>
