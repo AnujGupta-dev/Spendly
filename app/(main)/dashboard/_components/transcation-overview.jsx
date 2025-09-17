@@ -80,7 +80,7 @@ export function DashboardOverview({ accounts, transactions }) {
     <div className="grid gap-4 md:grid-cols-2">
       {/* Recent Transactions Card */}
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+        <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 space-y-0 pb-4">
           <CardTitle className="text-base font-normal">
             Recent Transactions
           </CardTitle>
@@ -88,7 +88,7 @@ export function DashboardOverview({ accounts, transactions }) {
             value={selectedAccountId}
             onValueChange={setSelectedAccountId}
           >
-            <SelectTrigger className="w-[140px]">
+            <SelectTrigger className="w-full sm:w-[140px]">
               <SelectValue placeholder="Select account" />
             </SelectTrigger>
             <SelectContent>

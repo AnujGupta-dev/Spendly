@@ -154,7 +154,7 @@ export function AddTransactionForm({
       </div>
 
       {/* Amount and Account */}
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <label className="text-sm font-medium">Amount</label>
           <Input
@@ -265,7 +265,7 @@ export function AddTransactionForm({
       </div>
 
       {/* Recurring Toggle */}
-      <div className="flex flex-row items-center justify-between rounded-lg border p-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-lg border p-4">
         <div className="space-y-0.5">
           <label className="text-base font-medium">Recurring Transaction</label>
           <div className="text-sm text-muted-foreground">

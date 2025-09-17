@@ -12,7 +12,7 @@ const Header = async () => {
 
     return (
         <header className="fixed top-0 w-full bg-background/70 backdrop-blur-md z-50 border-b">
-            <nav className="container mx-auto flex items-center justify-between p-4">
+            <nav className="container mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between p-4">
                 <Link href="/">
                     <Image src={"/logo.png"} alt="mintflow-logo" height={500} width={500} className="h-10 w-auto object-contain block dark:hidden" />
                     <Image src={"/logo2.png"} alt="mintflow-logo" height={500} width={500} className="h-10 w-auto object-contain hidden dark:block " />

@@ -238,7 +238,7 @@ export function TransactionTable({ transactions }) {
             className="pl-8"
           />
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 sm:items-center">
           <Button variant="outline" onClick={handleExportCsv} title="Export filtered results">
             Export CSV
           </Button>
@@ -249,7 +249,7 @@ export function TransactionTable({ transactions }) {
               setCurrentPage(1);
             }}
           >
-            <SelectTrigger className="w-[130px]">
+            <SelectTrigger className="w-full sm:w-[130px]">
               <SelectValue placeholder="All Types" />
             </SelectTrigger>
             <SelectContent>
@@ -265,7 +265,7 @@ export function TransactionTable({ transactions }) {
               setCurrentPage(1);
             }}
           >
-            <SelectTrigger className="w-[130px]">
+            <SelectTrigger className="w-full sm:w-[130px]">
               <SelectValue placeholder="All Transactions" />
             </SelectTrigger>
             <SelectContent>
