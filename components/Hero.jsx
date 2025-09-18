@@ -34,7 +34,7 @@ const HeroSection = () => {
                     Money clarity, <br />without the clutter
                 </h1>
                 <p className="text-muted-foreground text-xl mb-8 max-w-2xl mx-auto">
-                    Mintflow helps you track spending, plan budgets, and spot trends with effortless insights.
+                    Spendly helps you track spending, plan budgets, and spot trends with effortless insights.
                 </p>
                 <div className="flex justify-center space-x-4">
                     <Link href="/dashboard">
@@ -51,7 +51,7 @@ const HeroSection = () => {
                 <div className="hero-image-wrapper mt-5 md:mt-0">
                     <div ref={imageRef} className="hero-image">
                         <Image
-                            src="/banner.jpeg"
+                            src="/banner.png"
                             width={1280}
                             height={720}
                             alt="Dashboard Preview"

@@ -1,4 +1,4 @@
-## Mintflow
+## Spendly
 
 A modern personal finance app for tracking accounts, transactions, and budgets.
 
