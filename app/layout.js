@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           <Toaster richColors />
           <footer className="py-10 border-t bg-secondary/30">
             <div className="container mx-auto px-4 text-center text-muted-foreground">
-              <p>© {new Date().getFullYear()} Spendly. Crafted with care.</p>
+              <p>© 2025 Spendly. Crafted with care.</p>
             </div>
           </footer>
         </body>
